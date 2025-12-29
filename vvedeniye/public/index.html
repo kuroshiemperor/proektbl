@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Scheduler - Назначение встреч</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Meeting Scheduler</h1>
+            <p>Простая система для назначения встреч и отправки уведомлений</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('register')">Регистрация</button>
+            <button class="tab-button" onclick="openTab('meeting')">Создать встречу</button>
+            <button class="tab-button" onclick="openTab('users')">Пользователи</button>
+        </div>
+
+        <!-- Регистрация -->
+        <div id="register" class="tab-content active">
+            <h2>Регистрация пользователя</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+            <div id="registerMessage" class="message"></div>
+        </div>
+
+        <!-- Создание встречи -->
+        <div id="meeting" class="tab-content">
+            <h2>Создать новую встречу</h2>
+            <form id="meetingForm">
+                <div class="form-group">
+                    <label for="meetingTitle">Название встречи:</label>
+                    <input type="text" id="meetingTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="meetingDescription">Описание:</label>
+                    <textarea id="meetingDescription" name="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="meetingDate">Дата:</label>
+                    <input type="date" id="meetingDate" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="meetingTime">Время:</label>
+                    <input type="time" id="meetingTime" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="organizer">Организатор (ваш email):</label>
+                    <input type="email" id="organizer" name="organizer" required>
+                </div>
+                <div class="form-group">
+                    <label for="participants">Участники (через запятую):</label>
+                    <textarea id="participants" name="participants" placeholder="email1@example.com, email2@example.com" required></textarea>
+                    <small>Укажите email адреса участников через запятую</small>
+                </div>
+                <button type="submit">Создать встречу</button>
+            </form>
+            <div id="meetingMessage" class="message"></div>
+        </div>
+
+        <!-- Список пользователей -->
+        <div id="users" class="tab-content">
+            <h2>Зарегистрированные пользователи</h2>
+            <div id="usersList" class="users-list">
+                <p>Загрузка...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
